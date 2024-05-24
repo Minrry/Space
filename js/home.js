@@ -25,9 +25,9 @@
               positionX = positionX + (distX * speed);
               positionY = positionY + (distY * speed);
   
-              plan.style.cssText = `transform: translate(${positionX / forplan}%,${positionY / forplan}%);`;
-              asteroid.style.cssText = `transform: translate(${positionX / fonasteroid}%,${positionY / fonasteroid}%);`;
-              sun.style.cssText = `transform: translate(${positionX / fonsun}%,${positionY / fonsun}%);`;
+              sky.style.cssText = `transform: translate(${positionX / forSky}%,${positionY / forSky}%);`;
+              planet1.style.cssText = `transform: translate(${positionX / fonPlanet1}%,${positionY / fonPlanet1}%);`;
+              planet2.style.cssText = `transform: translate(${positionX / fonPlanet2}%,${positionY / fonPlanet2}%);`;
               requestAnimationFrame(setMouseParallaxStyle);
           }
           setMouseParallaxStyle();
