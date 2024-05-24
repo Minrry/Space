@@ -1,0 +1,508 @@
+*{
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+ul, ol, li{
+    list-style: none;
+}
+li{
+    font-size: clamp(10px, 3vw, 20px);
+}
+body{ 
+    font-family: 'Jura', sans-serif;
+    color:#f4e9d9;
+    background-color: #0e0e0e;
+    font-weight: 500; 
+}
+p{
+    font-size: clamp(10px, 3vw, 20px);
+}
+
+u{
+    color: #ba4e2c;
+}
+section{
+    margin: 100px 0  0;
+} 
+
+/*--------шапка сайта-------- */
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    position: fixed;
+    z-index: 30;
+    width: 100%;
+}
+header.shadow{
+    background: var(--text-color);
+    background-color: #0e0e0e;
+    box-shadow: 0px 0px 40px -11px #0e0e0e;
+    transition: 0.7s ease;    
+}
+.logo{
+    width: 55px;
+    height: 48px;
+}
+nav{ 
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;    
+    margin: 0 auto;  
+}
+.menu{
+    display: flex;
+    gap: 25px;
+    text-transform: uppercase;
+}
+.menu_lin a::before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ba4e2c;
+    transform: scaleX(0);
+    transition: 0.3s ease;
+} 
+.menu_lin a:hover::before,
+.menu_lin a:active::before{
+    transform: scaleX(1);
+}
+.menu_btn {
+    display: none;    
+    width: 30px;
+    height: 35px;
+    cursor: pointer;
+    margin: 0 10%;
+}
+.menu_btn span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #f4e9d9;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/*------- контент-------- */
+main {
+	width: 100%;
+	overflow: hidden;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+.conteiner_information h1{
+    margin: 200px 0 20px ;
+    display: flex;
+    flex-direction: column;    
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: clamp(10px, 14vw, 150px);
+}
+.conteiner_information p:nth-child(2){
+    margin: 0 40% 0 0;
+}
+.conteiner_information img{   
+    position: relative;
+    z-index: -1;
+    margin: -370px 0 0 50%;
+} 
+
+.facts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 100px 0 0;
+    gap: 0 15px;
+}
+.facts_2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);    
+    justify-items: center;
+    align-items: center;
+    margin: 100px 0 0;
+    gap: 0 15px;
+}
+.head {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+section{
+    margin: 25vw 0  0;
+}  
+
+    /* -------планеты солнечной системы */
+
+.list_planet{
+    display: grid;
+    grid-template: repeat(4, 1fr)/ repeat(9, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 0 10px;
+    margin: 150px 0 0;
+} 
+.sun{
+    width: 100px;
+    height: 300px; 
+    border: 4px solid #ba4e2c;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 50px/155px;
+    grid-area: 1/1/5/2;
+}
+.sun_2 {
+    grid-area: 1/1/5/2;
+    color: #ba4e2c;
+}
+.mercury{
+    grid-area: 2/2/3/3;
+}
+.mercury_2 {
+    grid-area: 3/2/4/3;
+}
+
+.venus {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/3/3/4;
+}
+.venus_2 {
+    grid-area: 3/3/4/4;
+}
+
+.earth {
+    width: 51px;
+    height: 51px; 
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/4/3/5;
+}
+.earth_2 {
+    grid-area: 3/4/4/5;
+}
+
+.mars {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/5/3/6;
+}
+.mars_2 {
+    grid-area: 3/5/4/6;
+}
+
+.jupiter {
+    width: 79px;
+    height: 79px;
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/6/3/7;
+}
+.jupiter_2 {
+    grid-area: 3/6/4/7;
+}
+
+.saturn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/7/3/8;
+}
+.saturn_2 {
+    grid-area: 3/7/4/8;
+}
+
+.uranus {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/8/3/9;
+}
+.uranus_2 {
+    grid-area: 3/8/4/9;
+}
+
+.neptune {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: solid 2px #fff; 
+    grid-area: 2/9/3/10;
+}
+.neptune_2 {
+    grid-area: 3/9/4/10;
+}
+    /*планеты солнечной системы -----------*/
+
+.text_conteiner_information {
+    display: flex;
+}
+.namber {
+    font-size: clamp(20px, 14vw, 150px);
+}
+.information{
+    margin: 15px 0 0 3vw;
+}
+.information h2{
+    text-transform:capitalize;
+    letter-spacing: 5px;
+    margin: 15px 0 ;  
+    font-size: clamp(20px, 5vw, 70px);
+}
+.information p{
+    margin: 0 0 10px;
+}
+.lane {
+    width: auto;
+    height: 2px;
+    background-color: #fff;
+}
+.img_information{
+    position: relative;
+    margin: -25vw 0 0 40vw;
+    z-index: -1;
+} 
+
+                /* ---------всплывающая подсказка при наведении */
+[data-tooltip] {
+    position: relative;
+    font-family: sans-serif;
+}
+[data-tooltip]::after {
+    position: absolute;
+    content: attr(data-tooltip);
+    width: 200px;
+    left: 0; 
+    top: 0;    
+    font-size: 16px;
+    background: #79280E;
+    border-radius: 30px;
+    padding: 1em;
+    color: #f4e9d9;
+    pointer-events: none;
+    opacity: 0;
+    transition: 1s;
+    z-index: 1;
+} 
+[data-tooltip]::before {
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 99;
+    position: absolute;
+    opacity: 0;
+    transition: 1s; 
+    border: 20px solid transparent;
+    border-right: 15px solid #79280E;
+    transform: rotate(90deg);
+}
+[data-tooltip]:hover::after{
+    opacity: 1;
+    top: 2.5em; 
+}
+[data-tooltip]:hover::before {
+    opacity: 1; 
+    top: 20%;
+    left: 30%;
+} 
+                /*всплывающая подсказка при наведении -------------*/
+    
+.build{
+    margin: ;
+    height: 400px;
+    width: 200px;
+}
+.atmos{
+    width: 80%;
+    display: flex;
+    margin: 15px auto;
+}
+
+/*--------- подвал ----------*/
+.foot {
+    position: relative;
+    background-color: #070707;
+    padding: 20px 0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.conteiner {
+    max-width: 90%;
+    margin: 0px auto;
+}
+.slogan {
+    margin: 10px 0 20px 0;
+    font-size: clamp(17px, 15vw, 21px);
+}
+.logo_footer img {
+    width: 70px;
+    height: auto;
+}
+.contact-info {
+    margin: 10px 0;
+}
+.foot.active,
+.content.active {
+    display: none;
+}
+
+ /* -------адаптив ----------*/
+@media (max-width: 900px) {
+    .build{
+        margin: 0 0 0 35%;
+    }
+}
+@media (max-width: 820px) {
+    .facts,.facts_2 {
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        row-gap: 20px;
+    }
+
+    .list_planet{
+        grid-template:140px 30px 55px 45px 55px 51px 55px 37px 55px 79px 55px 72px 55px 65px 55px 58px/ 1fr;
+        align-items: start;
+    }
+    .sun{
+        grid-area: 1/1/1/2;
+        width: 300px;
+        height: 100px;
+        border: 4px solid #ba4e2c;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 155px/50px;
+    }
+    .sun_2{
+        grid-area: 1/1/1/2;
+        align-self: center;
+    }
+
+    .mercury{
+        grid-area: 2/1/3/1;
+    }
+    .mercury_2 {
+        grid-area: 3/1/4/1;
+    }
+
+    .venus {
+        grid-area: 4/1/5/1;
+    }
+    .venus_2 {
+        grid-area: 5/1/6/1;
+    }
+
+    .earth {
+        grid-area: 6/1/7/1;
+    }
+    .earth_2 {
+        grid-area: 7/1/8/1;
+    }
+
+    .mars {
+        grid-area: 8/1/9/1;
+    }
+    .mars_2 {
+        grid-area: 9/1/10/1;
+    }
+
+    .jupiter {
+        grid-area: 10/1/11/1;
+    }
+    .jupiter_2 {
+        grid-area: 11/1/12/1;
+    }
+
+    .saturn {
+        grid-area: 12/1/13/1;
+    }
+    .saturn_2 {
+        grid-area: 13/1/14/1;
+    }
+
+    .uranus {
+        grid-area: 14/1/15/1;
+    }
+    .uranus_2 {
+        grid-area: 15/1/16/1;
+    }
+
+    .neptune {
+        grid-area: 16/1/17/1;
+    }
+    .neptune_2 {
+        grid-area: 17/1/18/1;
+    } 
+    .img_information{
+        width: 600px;
+        height: 600px;
+    }     
+}
+@media (max-width: 768px) {
+    .text_conteiner_information {
+        margin: 0  0 0;
+    }
+}
+@media (max-width: 425px) {
+    .build{
+        margin: 0 0 0 20%;
+        height: 300px;
+    }
+    .logo{
+        margin: 0 auto;
+    }
+    .menu_btn {
+        display: block;    
+    }
+    .menu_btn.active span:nth-child(1) {
+        opacity: 0;
+    }
+    .menu_btn.active span:nth-child(2) {
+        transform: translateY(4px) rotate(45deg);  
+    }
+    .menu_btn.active span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);  
+    }
+    .menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #0e0e0e;
+        width: 100%;
+        text-align: center;
+        transition: 1s;
+    }
+    .menu.active{
+        left: 0;
+    }    
+    .menu_lin{
+        margin: 16px 0;
+    }
+}
