@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест на знание Солнечной системы</title>
+    <link rel="stylesheet" href="css/test1.css">
+</head>
+<body>
+    <header>
+        <nav >
+            <a href="index.html" class="logo">
+                <img class="logo" src="img/logo1.png" alt="Логотип">
+            </a> 
+            <ul class="menu">
+                <li class="menu_lin"><a href="planet.html">планеты</a></li>
+                <li class="menu_lin"><a href="#">солнце</a></li>
+                <li class="menu_lin"><a href="#">другие объекты</a></li>
+                <li class="menu_lin"><a href="tests.html">тесты</a></li>
+            </ul>
+            <div class="menu_btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>              
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <h1>Солнечная система и ее строение</h1>
+            <p>Тест на знание Солнечной системы и ее строения</p>
+            <button onclick="startQuiz()">Начать тест</button>
+            
+            <div id="quiz" style="display: none;">
+                <div id="questionContainer"></div>
+                <button id="actionButton" style="display: none;" onclick="performAction()">Следующий вопрос</button>
+            </div>
+        </div>     
+            <!-- Модальное окно -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div id="result"></div>
+                </div>
+            </div>
+              
+    </main>
+
+    
+
+    <script src="js/test1.js"></script>
+</body>
+</html>
