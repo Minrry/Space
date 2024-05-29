@@ -50,30 +50,53 @@
 
 //------------слайдер
 
-// Функция для проверки, видим ли элемент на экране
-function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
-  return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
+function checkWidthAndReplaceClass() {
+    const slides = document.querySelectorAll('.slide, .slide-scrol');
+    if (window.innerWidth <= 980) {
+        slides.forEach(slide => {
+            if (slide.classList.contains('slide')) {
+                slide.classList.replace('slide', 'slide-scrol');
+            }
+        });
+    } else {
+        slides.forEach(slide => {
+            if (slide.classList.contains('slide-scrol')) {
+                slide.classList.replace('slide-scrol', 'slide');
+            }
+        });
+    }
 }
 
-// Функция для ленивой загрузки изображений
-function lazyLoadImages() {
-  document.querySelectorAll('.slide_container img[data-src]').forEach(function(img) {
-      if (isElementInViewport(img)) {
-          img.src = img.getAttribute('data-src');
-          img.removeAttribute('data-src');
-      }
-  });
-}
+// Проверяем ширину экрана при загрузке страницы
+checkWidthAndReplaceClass();
 
-// Добавляем обработчик события для проверки видимости при прокрутке и загрузки страницы
-document.addEventListener('DOMContentLoaded', lazyLoadImages);
-document.addEventListener('scroll', lazyLoadImages);
+// Проверяем ширину экрана при изменении размера окна
+window.addEventListener('resize', checkWidthAndReplaceClass);
+
+// // Функция для проверки, видим ли элемент на экране
+// function isElementInViewport(el) {
+//   var rect = el.getBoundingClientRect();
+//   return (
+//       rect.top >= 0 &&
+//       rect.left >= 0 &&
+//       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+//       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+//   );
+// }
+
+// // Функция для ленивой загрузки изображений
+// function lazyLoadImages() {
+//   document.querySelectorAll('.slide_container img[data-src]').forEach(function(img) {
+//       if (isElementInViewport(img)) {
+//           img.src = img.getAttribute('data-src');
+//           img.removeAttribute('data-src');
+//       }
+//   });
+// }
+
+// // Добавляем обработчик события для проверки видимости при прокрутке и загрузки страницы
+// document.addEventListener('DOMContentLoaded', lazyLoadImages);
+// document.addEventListener('scroll', lazyLoadImages);
 
 
 
