@@ -40,7 +40,7 @@ header{
     justify-content: space-around;
     align-items: center;  
     position: fixed;
-    z-index: 5;
+    z-index: 30;
     width: 100%;
 }
 header.shadow{
@@ -205,7 +205,7 @@ nav{
     pointer-events: none;
     opacity: 0;
     transition: 1s;
-    z-index: 1;
+    z-index: 10;
 } 
 [data-tooltip]::before {
     content: "";
@@ -218,7 +218,7 @@ nav{
     border: 20px solid transparent;
     border-right: 15px solid #79280E;
     transform: rotate(90deg);
-    z-index: 1;
+    z-index: 10;
 }
 [data-tooltip]:hover::after,
 [data-tooltip]:active::after{
@@ -232,31 +232,56 @@ nav{
     left: 30%;
 } 
                 /*всплывающая подсказка при наведении -------------*/
-
-.photo img{
+                /* слайдер--------------- */
+.slide img {
     display: flex;
-    position: relative ;
+    position: relative;
     outline: solid 1px #f4e9d9;
-    outline-offset: 1em;
+    outline-offset: 1em;   
 }
-.photo img:nth-child(1){
+.photo1 img {
     top: 2vh;
     left: 2vw;
     z-index: 2;
 }
-.photo img:nth-child(2){
+
+.photo2 img {
     top: -5vh;
     left: 16vw;
-    z-index: 1;    
+    z-index: 1;
 }
-.photo img:nth-child(3){
+
+.photo3 img {
     top: -8vh;
     left: 3vw;
 }
+
+.photo4 img {
+    top: -13vh;
+    left: 16vw;
+}
+
+.photo5 img {
+    top: -14vh;
+    left: 5vw;
+}
+.photo6 img {
+    top: -21vh;
+    left: -15vw;
+}
+.duplicate {
+    display: none;
+}
+.slide-scrol img {
+    width: 250px;
+    height: 150px;
+    outline: none;
+}
+                                /*--------------- слайдер */
 .block {
     overflow: hidden;
     position: relative;
-    height: 100vh;
+    height: 61vw;
     width: 100%;
     -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
 }
@@ -337,7 +362,8 @@ nav{
     background: linear-gradient(120deg, transparent, #ba4e2c63, transparent);
     transition: all 650ms;
 }
-.cross:hover:before {
+.cross:hover:before,
+.cross:active:before {
     left: 100%;
 } 
                 /* кнопка -------------- */
@@ -386,28 +412,33 @@ nav{
   color: black;
 } */
 
-
 /* адаптив */
-
  @media  (max-width: 1180px ) {
     .parallax_img_planet1 {
         width:550px;
         height: 550px; 
     }
-    .photo img:nth-child(1){
+   .photo1 img{
         width: 250px;
     }
-    .photo img:nth-child(2){
+    .photo2 img{
         width: 300px;   
     }
-    .photo img:nth-child(3){
+    .photo3 img{
         width: 200px;
     }
-    .block {
-        height: 85vh;
+    .photo4 img{
+        width: 300px;
+        left: 15vw;
     }
-    .title_wrapper {
-        transform: translateY(-38%);
+    .photo5 img{
+        width: 250px;
+        left: 1vw;
+    }
+    .photo6 img{
+        width: 300px;
+        top: -12vh;
+        left: -20vw;
     }
 /* .slider{ 
         margin: 0 auto;
@@ -430,25 +461,47 @@ nav{
     } 
 */
 }
+
 @media (max-width: 980px ) {
     .conteiner_information {
-        grid-template-columns:none;
+        grid-template-columns: none;
         gap: 20px;
     }
-    .photo img:nth-child(2){
-        top: -3vh;
-        left: 22vw;   
+    .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }    
+    .slider::before,
+    .slider::after {
+        background: linear-gradient(to right, #0e0e0e 0%, #0e0e0e00 100%);
+        content: "";
+        height: 150px;
+        position: absolute;
+        width: 150px;
+        z-index: 2;
     }
-    .photo img:nth-child(3){
-        top: -38vh;
-        left: 50vw;
+    .slider::before {
+        left: 0;
+        top: 0;
+    }    
+    .slider::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
     }
-    .block {
-        height: 80vh;
+    .slide-track {
+        display: flex;
+        width: calc(250px * 12);
+        animation: scroll 20s linear infinite;
     }
-    .title_wrapper {
-        transform: translateY(-30%);
-    } 
+    .duplicate {
+        display: block; 
+    }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 6)); }
+    }
 }
 @media (max-width: 850px ) {
     .parallax_img_planet1 { 
@@ -462,74 +515,39 @@ nav{
     .parallax_img_planet1 {
         width:500px;
         height: 500px; 
-    }
+    }*/
     .block {
-        height: 80vh;
+        height: 68vw;
     }
-    .title_wrapper {
-        transform: translateY(-35%);
-    } */
+    .title_wrapper img{
+        width: 110%;
+    } 
 }
 @media  (max-width: 700px ) {
-    .photo img:nth-child(1){
-        width: 200px;
-    }
-    .photo img:nth-child(2){
-        width: 250px;  
-        top: -3vh;
-        left: 25vw;  
-    }
-    .photo img:nth-child(3){
-        width: 150px;
-        top: -30vh;
-        left: 54vw;
-    }
-    /* .block {
-        height: 60vh;
-    }
-    .title_wrapper {
-        transform: translateY(-28%);
-    } */
-}
-
-@media (max-width: 500px ) {
-    .photo img{
-        outline-offset: .5em;
-    }
-    .photo img:nth-child(1){
-        width: 150px;
-    }
-    .photo img:nth-child(2){
-        width: 200px;  
-        top: -3vh;
-        left: 24vw;  
-    }
-    .photo img:nth-child(3){
-        width: 100px;
-        top: -24vh;
-        left: 58vw;
-    }
-    /* .logo{
-        width: 45px;
-        height: 38px;
-    }
-    .photo img:nth-child(1){
-        width: 204px;
-    }
-    .photo img:nth-child(2){
-        width: 265px;  
-    }
-    .photo img:nth-child(3){
-        width: 174px;
-    } 
     .block {
-        height: 50vh;
+        height: 73vw;
     }
-    .title_wrapper {
-        transform: translateY(-23%);
-    } */
+    .title_wrapper img{
+        width: 120%;
+    } 
 }
 
+@media (max-width: 600px ) {
+    .block {
+        height: 79vw;
+    }
+    .title_wrapper img{
+        width: 130%;
+    } 
+}
+@media (max-width: 500px ) {
+    .block {
+        height: 86vw;
+    }
+    .title_wrapper img{
+        width: 140%;
+    } 
+}
  @media (max-width: 425px ) {
     .logo{
         margin: 0 auto;
@@ -573,24 +591,12 @@ nav{
         width: 100px;
         margin: 70vh 0 0 15vw ;
     }
-    .photo img:nth-child(1){
-        width: 100px;
-    }
-    .photo img:nth-child(2){
-        width: 150px;  
-    }
-    .photo img:nth-child(3){
-        width: 80px;
-        top: -2vh;
-        left: 8vw;
-    }
-   /* 
     .block {
-        height: 40vh;
+        height: 92vw;
     }
-    .title_wrapper {
-        transform: translateY(-18%);
-    } */
+    .title_wrapper img{
+        width: 150%;
+    } 
 }
 @media (max-width: 320px ) {
     .parallax_img_planet1 { 
