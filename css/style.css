@@ -1,0 +1,581 @@
+*{
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+
+}
+body{ 
+    font-family: 'Jura', sans-serif;
+    color:#f4e9d9;
+    background-color: #0e0e0e;
+    font-weight: 500; 
+}
+a{
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+ul, ol, li{
+    list-style: none;
+}
+li{
+    font-size: clamp(11px, 3vw, 20px);
+}
+p{
+    font-size: clamp(11px, 3vw, 20px);
+}
+u{
+    color: #ba4e2c;
+    cursor: pointer;
+}
+section{
+    margin: 100px 0  0;
+} 
+
+/*--------шапка сайта-------- */
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    position: fixed;
+    z-index: 30;
+    width: 100%;
+}
+header.shadow{
+    background: var(--text-color);
+    background-color: #0e0e0e;
+    box-shadow: 0px 0px 40px -11px #0e0e0e;
+    transition: 0.7s ease;    
+}
+nav{ 
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;    
+}
+.logo{
+    width: 55px;
+    height: 48px;
+}
+.menu{
+    display: flex;
+    gap: 25px;
+    text-transform: uppercase;
+}
+.menu_lin a::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    background-color: #ba4e2c;
+    transform: scaleX(0);
+    transition: 0.3s ease;
+} 
+.menu_lin a:hover::before,
+.menu_lin a:active::before{
+    transform: scaleX(1);
+}
+.menu_btn {
+    display: none;    
+    width: 30px;
+    height: 35px;
+    cursor: pointer;
+    margin: 0 10%;
+}
+.menu_btn span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #f4e9d9;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/*----------------- контент ----------------*/
+/* main{
+    padding: 1px 0 0 0;
+} */
+.parallax {
+    min-height: 100vh;
+}
+.parallax_body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.conteiner {
+    max-width: 90%;
+    margin: 0px auto;
+}
+.parallax_text_conteiner {
+    position: relative;
+    top: 30%;
+    user-select: none;
+}
+.parallax_text_conteiner h1 {
+    font-size: clamp(29px, 8vw, 75px);
+    text-transform: uppercase;
+}
+.parallax_text_conteiner p {
+    margin: 30px 0 20px 0;
+    font-size: clamp(6px, 8vw, 21px);
+}
+
+                    /*---------- параллакс */
+.parallax_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -10px;
+    left: -10px;
+    z-index: -1;  
+}
+.parallax_img_planet2,
+.parallax_img_planet1,
+.parallax_img_sky{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: top / cover no-repeat; 
+}
+.parallax_img_planet1 {
+    bottom: 0;
+    right: 0;  
+    margin: auto 60%;
+    width: 600px;
+    height: 600px;  
+} 
+.parallax_img_planet2{
+    width: 150px;
+    margin: 55vh 0 0 15vw ;
+}
+                        /* паралакс-------- */
+.content {
+    position: relative;    
+    background-color: #0e0e0e;
+}
+.content::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    transform: translate(0px, -100%);
+    background: linear-gradient(180deg, #0e0e0e04 60%,#0e0e0eb6 85%,#0e0e0e 100% );
+    overflow: hidden;   
+}
+.content_conteiner{
+    width: 100%;
+    overflow: hidden;
+}
+.conteiner_information {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.info h2{
+    font-size:clamp(18px, 8vw, 45px) ;
+}
+.info p{
+    margin: 15px 0 0;
+}
+                /* ---------всплывающая подсказка при наведении */
+
+.tooltip {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+    font-family: sans-serif;  
+    color: #ba4e2c;
+    text-decoration: underline;  
+}
+.tooltip .tooltiptext {
+    width: 250px;
+    background-color: #79280E;
+    color: #f4e9d9;
+    text-align: center;
+    border-radius: 30px;
+    padding: 1em;
+    position: absolute;
+    z-index: 10;
+    top: 200%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 1s;
+    pointer-events: none;
+    font-size: clamp(11px, 3vw, 16px);
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 35%;
+    transform: rotate(180deg);
+    border-width: 20px;
+    border-style: solid;
+    border-color: #79280E transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext,
+.tooltip:active .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+                /*всплывающая подсказка при наведении -------------*/
+                /* слайдер--------------- */
+.slide img {
+    display: flex;
+    position: relative;
+    outline: solid 1px #f4e9d9;
+    outline-offset: 1em;   
+}
+.photo1 img {
+    top: 2vh;
+    left: 2vw;
+    z-index: 2;
+}
+
+.photo2 img {
+    top: -5vh;
+    left: 16vw;
+    z-index: 1;
+}
+
+.photo3 img {
+    top: -8vh;
+    left: 3vw;
+}
+
+.photo4 img {
+    top: -13vh;
+    left: 16vw;
+}
+
+.photo5 img {
+    top: -14vh;
+    left: 5vw;
+}
+.photo6 img {
+    top: -21vh;
+    left: -15vw;
+}
+.duplicate {
+    display: none;
+}
+.slide-scrol img {
+    width: 250px;
+    height: 150px;
+    outline: none;
+}
+                                /*--------------- слайдер */
+.block {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
+}
+.title_wrapper {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.title_wrapper img {
+    width: 100%;
+}
+.title_wrapper p {
+    position: fixed; 
+    width: 100%;
+    top: 50%;
+    color: #f4e9d9;
+    font-size: clamp(18px, 7vw, 70px);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+}
+.info_block {
+    min-height: 100vh;
+    padding: 2em;
+    margin: auto;
+    max-width: 800px;
+}
+.row_conteiner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;    
+}
+.text_conteiner h2{
+    font-family:  sans-serif;  
+    text-transform: uppercase;
+    font-size: clamp(19px, 8vw, 25px);
+    text-align: center;       
+}
+.line {
+    height: 1px;
+    background-color: #ba4e2c;
+    margin: 5px auto 10px;
+    margin: auto;
+    max-width: 800px;
+}
+.text_conteiner p {
+    margin: 15px 0 0;
+}
+.text_conteiner ul{
+    margin: 15px 0 0;
+}
+.text_conteiner li{
+    list-style: circle;
+    margin: 10px 0 0 20px;
+}
+
+                /* --------------кнопка  */
+.container_cross {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    height: 25vh;
+}
+.cross {
+    border: 1px solid #ba4e2c;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase; 
+    font-size: clamp(10px, 3vw, 20px);
+}
+.cross:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #ba4e2c63, transparent);
+    transition: all 650ms;
+}
+.cross:hover:before,
+.cross:active:before {
+    left: 100%;
+} 
+                /* кнопка -------------- */
+/*--------- подвал ----------*/
+footer { 
+    position: relative;
+    background-color: #070707;
+    padding: 20px 0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.logo_footer img {
+    width: 55px;
+    height: 48px;
+}
+.slogan p {
+    margin: 10px 0 20px 0;
+    font-size: clamp(12px, 15vw, 15px);
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+.foot.active,
+.content.active {
+    display: none;
+} 
+
+/* адаптив */
+ @media  (max-width: 1180px ) {
+    .parallax_img_planet1 {
+        width:550px;
+        height: 550px; 
+    }
+   .photo1 img{
+        width: 250px;
+    }
+    .photo2 img{
+        width: 300px;   
+    }
+    .photo3 img{
+        width: 200px;
+    }
+    .photo4 img{
+        width: 300px;
+        left: 15vw;
+    }
+    .photo5 img{
+        width: 250px;
+        left: 1vw;
+    }
+    .photo6 img{
+        width: 300px;
+        top: -12vh;
+        left: -20vw;
+    }
+    .title_wrapper img{
+        width: 130%;
+        margin-top: 9vw;
+        margin-left: -15vw;
+    }
+}
+
+@media (max-width: 980px ) {
+    .conteiner_information {
+        grid-template-columns: none;
+        gap: 20px;
+    }
+    .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }    
+    .slider::before,
+    .slider::after {
+        background: linear-gradient(to right, #0e0e0e 0%, #0e0e0e00 100%);
+        content: "";
+        height: 150px;
+        position: absolute;
+        width: 150px;
+        z-index: 2;
+    }
+    .slider::before {
+        left: 0;
+        top: 0;
+    }    
+    .slider::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+    .slide-track {
+        display: flex;
+        width: calc(250px * 12);
+        animation: scroll 20s linear infinite;
+    }
+    .duplicate {
+        display: block; 
+    }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 6)); }
+    }
+    .title_wrapper img{
+        width: 145%;
+        margin-left: -20vw;
+        margin-top: 12vw;
+    } 
+}
+@media (max-width: 850px ) {
+    .parallax_img_planet1 { 
+        width: 500px;
+        height: 500px; 
+        }
+    .title_wrapper img{
+        width: 175%;
+        margin-left: -36vw;
+        margin-top: 11vw;
+    } 
+    .tooltip .tooltiptext {
+        width: 200px;
+    }
+}
+@media  (max-width: 700px ) {
+    .title_wrapper img{
+        width: 210%;
+        margin-left: -54vw;
+        margin-top: 13vw;
+    } 
+}
+
+@media (max-width: 600px ) {
+    .title_wrapper img{
+        width: 260%;
+        margin-left: -79vw;
+        margin-top: 11vw;
+    } 
+}
+@media (max-width: 500px ) {
+    .title_wrapper img{
+        width: 295%;
+        margin-left: -94vw;
+        margin-top: 22vw;
+    } 
+    .footer-content {
+        flex-direction: column;
+        gap: 0;
+    }
+    .logo_footer img {
+        width: 45px;
+        height: 38px;
+    }
+    .slogan p {
+        margin: 10px 10px 20px;
+        font-size: clamp(12px, 15vw, 15px);
+    }
+}
+ @media (max-width: 425px ) {
+    .logo{
+        margin: 0 auto;
+        width: 45px;
+        height: 38px;
+    }
+    .menu_btn {
+        display: block;    
+    }
+    .menu_btn.active span:nth-child(1) {
+        opacity: 0;
+    }
+    .menu_btn.active span:nth-child(2) {
+        transform: translateY(4px) rotate(45deg);  
+    }
+    .menu_btn.active span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);  
+    }
+    .menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #0e0e0e;
+        width: 100%;
+        text-align: center;
+        transition: 1s;
+    }
+    .menu.active{
+        left: 0;
+    }    
+    .menu_lin{
+        margin: 16px 0;
+    }
+    .parallax_img_planet1 { 
+        width: 400px;
+        height: 400px; 
+    }
+    .parallax_img_planet2{
+        width: 100px;
+        margin: 70vh 0 0 15vw ;
+    }
+    .title_wrapper img{
+        width: 380%;
+        margin-left: -133vw;
+        margin-top: 30vw;
+    } 
+}
+@media (max-width: 320px ) {
+    .parallax_img_planet1 { 
+        margin: 60vh  auto 0;
+        width: 300px;
+        height: 300px; 
+    }
+    .parallax_img_planet2{
+        width: 80px;
+        margin: 20vh 0 0 55vw ;
+    }
+} 
