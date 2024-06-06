@@ -18,3 +18,16 @@ document.querySelectorAll(".menu_lin").forEach(n => n.addEventListener("click", 
     menu.classList.remove("active");
 }))
 
+document.querySelectorAll('.tooltip').forEach(item => {
+    item.addEventListener('click', event => {
+        const tooltip = item.querySelector('.tooltiptext');
+        if (tooltip.style.visibility === 'visible') {
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.opacity = '0';
+        } else {
+            tooltip.style.visibility = 'visible';
+            tooltip.style.opacity = '1';
+        }
+    });
+});
+
