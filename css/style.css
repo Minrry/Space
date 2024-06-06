@@ -220,8 +220,7 @@ nav{
     border-style: solid;
     border-color: #79280E transparent transparent transparent;
 }
-.tooltip:hover .tooltiptext,
-.tooltip:active .tooltiptext {
+.tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
