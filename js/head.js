@@ -23,7 +23,7 @@ document.querySelectorAll(".menu_lin").forEach(n => n.addEventListener("click", 
 // Подсказки
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.tooltip').forEach(tooltip => {
-        tooltip.addEventListener('click', function (event) {
+        tooltip.addEventListener('touchstart', function (event) {
             event.stopPropagation();
             // Скрываем все остальные подсказки
             document.querySelectorAll('.tooltip.active').forEach(activeTooltip => {
@@ -36,13 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Скрываем подсказку при клике вне нее
-    document.addEventListener('click', () => {
+    // Скрываем подсказку при касании вне нее
+    document.addEventListener('touchstart', () => {
         document.querySelectorAll('.tooltip.active').forEach(tooltip => {
             tooltip.classList.remove('active');
         });
     });
 });
+
 
 
 
