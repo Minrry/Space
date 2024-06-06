@@ -225,6 +225,13 @@ nav{
     visibility: visible;
     opacity: 1;
 }
+.tooltip .tooltiptext {
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
                 /*всплывающая подсказка при наведении -------------*/
                 /* слайдер--------------- */
 .slide img {
