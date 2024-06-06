@@ -18,16 +18,28 @@ document.querySelectorAll(".menu_lin").forEach(n => n.addEventListener("click", 
     menu.classList.remove("active");
 }))
 
-document.querySelectorAll('.tooltip').forEach(item => {
-    item.addEventListener('click', event => {
-        const tooltip = item.querySelector('.tooltiptext');
-        if (tooltip.style.visibility === 'visible') {
-            tooltip.style.visibility = 'hidden';
-            tooltip.style.opacity = '0';
-        } else {
-            tooltip.style.visibility = 'visible';
-            tooltip.style.opacity = '1';
-        }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tooltip').forEach(tooltip => {
+        tooltip.addEventListener('click', function (event) {
+            event.stopPropagation();
+            // Скрываем все остальные подсказки
+            document.querySelectorAll('.tooltip.active').forEach(activeTooltip => {
+                if (activeTooltip !== tooltip) {
+                    activeTooltip.classList.remove('active');
+                }
+            });
+            // Переключаем видимость текущей подсказки
+            tooltip.classList.toggle('active');
+        });
+    });
+
+    // Скрываем подсказку при клике вне нее
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.tooltip.active').forEach(tooltip => {
+            tooltip.classList.remove('active');
+        });
     });
 });
+
 
