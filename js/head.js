@@ -1,24 +1,45 @@
-// script.js
+// Функция для добавления/удаления класса shadow в зависимости от ширины экрана
+function updateHeaderShadow() {
+    const header = document.querySelector("header");
+    const screenWidth = window.innerWidth;
 
-// Добавление тени к заголовку при прокрутке
-const header = document.querySelector("header");
+    if (screenWidth <= 425) {
+        header.classList.add("shadow");
+    } else {
+        header.classList.toggle("shadow", window.scrollY > 40);
+    }
+}
+
+// Вызов функции при загрузке страницы
+document.addEventListener("DOMContentLoaded", () => {
+    updateHeaderShadow();
+
+    // Адаптивное меню
+    const menuBtn = document.querySelector('.menu_btn');
+    const menu = document.querySelector('.menu');
+
+    menuBtn.addEventListener("click", () => {
+        menuBtn.classList.toggle("active");
+        menu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".menu_lin").forEach(n => n.addEventListener("click", () => {
+        menuBtn.classList.remove("active");
+        menu.classList.remove("active");
+    }));
+});
+
+// Вызов функции при изменении размера экрана
+window.addEventListener("resize", updateHeaderShadow);
+
+// Обновление класса shadow при прокрутке
 window.addEventListener("scroll", () => {
-    header.classList.toggle("shadow", window.scrollY > 40);
+    if (window.innerWidth > 425) {
+        const header = document.querySelector("header");
+        header.classList.toggle("shadow", window.scrollY > 40);
+    }
 });
 
-// Адаптивное меню
-const menuBtn = document.querySelector('.menu_btn');
-const menu = document.querySelector('.menu');
-
-menuBtn.addEventListener("click", () => {
-    menuBtn.classList.toggle("active");
-    menu.classList.toggle("active");
-});
-
-document.querySelectorAll(".menu_lin").forEach(n => n.addEventListener("click", () => {
-    menuBtn.classList.remove("active");
-    menu.classList.remove("active");
-}));
 
 // Подсказки
 document.addEventListener('DOMContentLoaded', () => {
