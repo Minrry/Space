@@ -1,32 +1,3 @@
-// window.addEventListener('click', function(event) {
-//     if (event.target.classList.value === "btn") {
-//       window.addEventListener('click', function(event) {
-//         if (event.target.classList.value === "btn") {
-//           event.target.closest('.btn_box').querySelectorAll('.btn').forEach((element) => {
-//             element.style.transform = "scale(1)";
-//             element.style.backgroundColor = "#fff";
-//           })
-//           if (event.target.id === 'b1') {
-//             event.target.closest('.btn_box').style.transform = "translate(-0%,-50%)";
-//             event.target.style.transform = "scale(1.5)";
-//             event.target.style.backgroundColor = "#ceb47b";
-//             event.target.closest('.slider').querySelector('.slides').style.left = 0 + '%'
-//           }
-//           if (event.target.id === 'b2') {
-//             event.target.closest('.btn_box').style.transform = "translate(-50%,-50%)";
-//             event.target.style.transform = "scale(1.5)";
-//             event.target.style.backgroundColor = "#ceb47b";
-//             event.target.closest('.slider').querySelector('.slides').style.left = -100 + '%'
-//           }
-//           if (event.target.id === 'b3') {
-//             event.target.closest('.btn_box').style.transform = "translate(-100%,-50%)";
-//             event.target.style.transform = "scale(1.5)";
-//             event.target.style.backgroundColor = "#ceb47b";
-//             event.target.closest('.slider').querySelector('.slides').style.left = -200 + '%'
-//           }
-//         }
-//       })
-      
 //         // Запуск ленивой загрузки изображений после обновления контента
 //         lazyLoadImages();
 //     }
@@ -58,7 +29,7 @@
      imgg.src = url.src
    });
    const imggg = document.getElementById('lazyyy');
-   loadImage("img/planet2.png").then(url => {
+   loadImage("img/planet2s.png").then(url => {
      imggg.src = url.src
    });
   
