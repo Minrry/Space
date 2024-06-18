@@ -335,17 +335,20 @@ nav{
 
                 /* --------------кнопка  */
 .container_cross {
+    margin: 15% 0 0 0;
+    cursor: pointer;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;   
-    height: 25vh;
 }
 .cross {
     border: 1px solid #ba4e2c;
+    position: relative;
     overflow: hidden;
     padding: 0.5rem 1rem;
-    text-transform: uppercase; 
-    font-size: clamp(10px, 3vw, 20px);
+    text-transform: uppercase;
+    border-radius: 5%;  
 }
 .cross:before {
     content: "";
