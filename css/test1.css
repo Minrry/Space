@@ -2,6 +2,7 @@
     box-sizing: border-box; 
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 a{
     color: inherit;
@@ -103,6 +104,19 @@ main{
 .question {
     margin-bottom: 20px;
 }
+#questionContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+#questionContainer p{
+    margin: 20px 0;
+}
+label{
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+}
 
                 /* ---------кнопка */
 button{
@@ -128,6 +142,24 @@ button::before{
 }
 button:hover:before {
     left: 100%;
+}
+.conteiner {
+    max-width: 90%;
+    margin: 0px auto;
+}
+.description h2{
+    margin: 25px 0 0 ;
+    color: #ba4e2c;
+}
+.description p {
+    margin: 15px 0 0;
+}
+.description ul{
+    margin: 15px 0 0;
+}
+.description li{
+    list-style: circle;
+    margin: 10px 0 0 20px;
 }
 /* Стили для модального окна */
 .modal {
@@ -156,9 +188,49 @@ button:hover:before {
     font-size: 24px;
 
 }
+/*--------- подвал ----------*/
+footer { 
+    position: absolute;
+    background-color: #070707;
+    padding: 20px 0;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.logo_footer img {
+    width: 55px;
+    height: 48px;
+}
+.slogan p {
+    margin: 10px 0 20px 0;
+    font-size: clamp(12px, 15vw, 15px);
+}
 
+.contact-info p {
+    margin: 10px 0;
+}
 
 /* адаптив */
+@media (max-width: 500px ) {
+    .footer-content {
+        flex-direction: column;
+        gap: 0;
+    }
+    .logo_footer img {
+        width: 45px;
+        height: 38px;
+    }
+    .slogan p {
+        margin: 10px 10px 20px;
+        font-size: clamp(12px, 15vw, 15px);
+    }
+}
 @media (max-width: 400px ) {
     .logo{
         margin: 0 auto;
