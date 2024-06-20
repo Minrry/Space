@@ -1,4 +1,3 @@
-// Вопросы теста
 const questions = [
     {
         question: '1. Какой планете принадлежит самый крупный спутник в Солнечной системе?',
@@ -69,8 +68,13 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let correctCount = 0;
+let isAnswering = false;
 
 function startQuiz() {
+    // Скрыть описание теста и подвал
+    document.getElementById('description').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+
     // Показать блок с вопросами
     document.getElementById('quiz').style.display = 'block';
 
@@ -88,53 +92,75 @@ function displayQuestion() {
     questionContainer.innerHTML = `
         <p>${currentQuestion.question}</p>
         ${currentQuestion.answers.map(answer => `
-            <input type="radio" name="answer" value="${answer}"> ${answer}<br>
+            <label>
+                <input type="radio" name="answer" value="${answer}" onclick="handleAnswerClick(this)"> ${answer}
+            </label><br>
         `).join('')}
     `;
 
-    // Показать кнопку "Следующий вопрос" или "Ответить"
-    const actionButton = document.getElementById('actionButton');
-    if (currentQuestionIndex < questions.length - 1) {
-        actionButton.innerHTML = 'Следующий вопрос';
+    // Показать кнопку "Назад" только если это не первый вопрос
+    const prevButton = document.getElementById('prevButton');
+    if (currentQuestionIndex > 0) {
+        prevButton.style.display = 'inline-block';
     } else {
-        actionButton.innerHTML = 'Ответить';
+        prevButton.style.display = 'none';
     }
-    actionButton.style.display = 'block';
+
+    // Разблокировать ответы
+    isAnswering = true;
 }
 
-function performAction() {
-    if (currentQuestionIndex < questions.length - 1) {
-        nextQuestion();
+function handleAnswerClick(selectedAnswer) {
+    if (isAnswering) {
+        // Заблокировать повторные ответы
+        isAnswering = false;
+
+        // Убрать подсветку с предыдущего выбранного ответа
+        const previousSelected = document.querySelector('.highlight');
+        if (previousSelected) {
+            previousSelected.classList.remove('highlight');
+        }
+
+        // Подсветить текущий выбранный ответ
+        selectedAnswer.parentElement.classList.add('highlight');
+
+        // Пауза перед переходом на следующий вопрос
+        setTimeout(() => {
+            performAction(selectedAnswer);
+        }, 1000);
+    }
+}
+
+function performAction(selectedAnswer) {
+    // Проверить ответ
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedAnswer.value === currentQuestion.correctAnswer) {
+        correctCount++;
+    }
+
+    // Перейти к следующему вопросу
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
     } else {
         checkAnswers();
     }
 }
 
-function nextQuestion() {
-    // Получить выбранный пользователем ответ
-    const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-    if (selectedAnswer) {
-        // Проверить ответ
-        const currentQuestion = questions[currentQuestionIndex];
-        if (selectedAnswer.value === currentQuestion.correctAnswer) {
-            correctCount++;
-        }
-
-        // Перейти к следующему вопросу
-        currentQuestionIndex++;
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
         displayQuestion();
-    } else {
-        alert('Пожалуйста, выберите ответ.');
     }
 }
 
 function checkAnswers() {
-    // Подсчет процента правильных ответов
-    const percentageCorrect = (correctCount / questions.length) * 100;
+    // Подсчет количества правильных ответов
+    const correctAnswers = correctCount;
 
     // Отображение результатов в модальном окне
     const resultElement = document.getElementById('result');
-    resultElement.innerHTML = `Вы ответили правильно на ${percentageCorrect.toFixed(1)}% вопросов.`;
+    resultElement.innerHTML = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
 
     // Показать модальное окно
     document.getElementById('modal').style.display = 'flex';
@@ -144,3 +170,10 @@ function closeModal() {
     // Скрыть модальное окно
     document.getElementById('modal').style.display = 'none';
 }
+
+// Обработчик выбора ответа
+document.addEventListener('change', function(event) {
+    if (event.target.name === 'answer') {
+        handleAnswerClick(event.target);
+    }
+});
