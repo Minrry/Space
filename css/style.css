@@ -208,7 +208,7 @@ nav{
     margin-left: -100px;
     opacity: 0;
     transition: opacity 1s;
-    pointer-events: none;
+    pointer-events: ;
     font-size: clamp(11px, 3vw, 16px);
 }
 .tooltip .tooltiptext::after {
@@ -513,6 +513,9 @@ footer {
         margin-left: -94vw;
         margin-top: 22vw;
     } 
+    .tooltip .tooltiptext {
+        pointer-events: auto;
+    }
     .footer-content {
         flex-direction: column;
         gap: 0;
