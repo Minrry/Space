@@ -161,6 +161,9 @@ section{
     gap: 0 10px;
     margin: 150px 0 0;
 } 
+.list_planet a{
+    display: grid;
+}
 .sun{
     width: 100px;
     height: 300px; 
@@ -469,31 +472,41 @@ section{
     .img_information{
         width: 600px;
         height: 600px;
-    }     
-}
-@media (max-width: 768px) {
-    .text_conteiner_information {
-        margin: 0  0 0;
-    }
+        margin: -45vh 0 0 35vw;
+    }   
     .build{
-        margin: 0 0 0 5px;
-        height: 200px;
-        width: 150px;
+        margin: 100px auto 0;
+        height: 500px;
+        width: 400px;
     }  
 }
-/* @media (max-width: 620px) {
+@media (max-width: 620px) {
     .text_conteiner_information {
-        margin: 0  0 0;
+        margin: 5px;
     }
     .build{
-        margin: 0 0 0 5px;
-    }  
-} */
+        margin: 50px auto 0;
+        height: 400px;
+        width: 300px;
+    } 
+    .footer-content {
+        flex-direction: column;
+        gap: 0;
+    }
+    .logo_footer img {
+        width: 45px;
+        height: 38px;
+    }
+    .slogan p {
+        margin: 10px 10px 20px;
+        font-size: clamp(12px, 15vw, 15px);
+    }
+}
 @media (max-width: 425px) {
-    /* .build{
-        margin: 0 0 0 20%;
-        height: 300px;
-    } */
+    .build{
+        height: 400px;
+        width: 300px;
+    } 
     .logo{
         margin: 0 auto;
     }
@@ -551,7 +564,7 @@ section{
     }
     .img_information{
         position: relative;
-        margin: -25vw 0 0 40vw;
+        margin: -40vh 0 0 30vw;
         z-index: -1;
     } 
 }
