@@ -208,7 +208,7 @@ nav{
     margin-left: -100px;
     opacity: 0;
     transition: opacity 1s;
-    pointer-events: auto ;
+    pointer-events: none ;
     font-size: clamp(11px, 3vw, 16px);
 }
 .tooltip .tooltiptext::after {
@@ -527,6 +527,9 @@ footer {
     .slogan p {
         margin: 10px 10px 20px;
         font-size: clamp(12px, 15vw, 15px);
+    }
+    .tooltip .tooltiptext {
+    pointer-events: auto ;
     }
 }
  @media (max-width: 425px ) {
