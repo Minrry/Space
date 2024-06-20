@@ -193,7 +193,6 @@ nav{
     font-family: sans-serif;  
     color: #ba4e2c;
     text-decoration: underline; 
-    z-index: -1;
 }
 .tooltip .tooltiptext {
     width: 250px;
@@ -351,9 +350,9 @@ nav{
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     border-radius: 5%;
-     cursor: pointer;
+/*      cursor: pointer;
     z-index: 10;
-    touch-action: manipulation;
+    touch-action: manipulation; */
 }
 .cross:before {
     content: "";
