@@ -127,7 +127,7 @@ function handleAnswerClick(selectedAnswer) {
         // Пауза перед переходом на следующий вопрос
         setTimeout(() => {
             performAction(selectedAnswer);
-        }, 1000);
+        }, 500);
     }
 }
 
