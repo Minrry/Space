@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/test1.css">
 </head>
 <body>
+        <!-- шапка сайта -->
     <header>
         <nav >
             <a href="index.html" class="logo">
@@ -15,7 +16,7 @@
             </a> 
             <ul class="menu">
                 <li class="menu_lin"><a href="planet.html">планеты</a></li>
-                <li class="menu_lin"><a href="#">солнце</a></li>
+                <li class="menu_lin"><a href="sun.html">солнце</a></li>
                 <li class="menu_lin"><a href="#">другие объекты</a></li>
                 <li class="menu_lin"><a href="tests.html">тесты</a></li>
             </ul>
@@ -29,25 +30,45 @@
     <main>
         <div class="content">
             <h1>Солнечная система и ее строение</h1>
-            <p>Тест на знание Солнечной системы и ее строения</p>
             <button onclick="startQuiz()">Начать тест</button>
-            
             <div id="quiz" style="display: none;">
-                <div id="questionContainer"></div>
-                <button id="actionButton" style="display: none;" onclick="performAction()">Следующий вопрос</button>
+                <div id="questionContainer" class="conteiner"></div>
+                <button id="prevButton" style="display: none;" onclick="prevQuestion()">Назад</button>
             </div>
-        </div>     
-            <!-- Модальное окно -->
-            <div id="modal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <div id="result"></div>
-                </div>
+        </div>  
+        <div class="description conteiner" id="description">
+            <h2>Цель теста:</h2>
+            <p>Проверить и углубить знания участников о Солнечной системе, её планетах, спутниках, малых телах и общем строении. Этот тест предназначен для школьников, студентов и всех, кто интересуется астрономией и хочет проверить свои знания о нашем космическом доме.</p>
+            <h2>Преимущества теста:</h2>
+            <ul>
+                <li>Позволяет систематизировать и проверить знания о Солнечной системе</li>
+                <li>Стимулирует интерес к астрономии и космосу</li>
+                <li>Может быть использован в образовательных учреждениях как часть учебной программы</li>
+            </ul>
+        </div>   
+        <!-- Модальное окно -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="result"></div>
             </div>
-              
+        </div>    
     </main>
-
-    
+    <!-- подвал -->
+    <footer id="footer">
+        <div class="footer-content conteiner">
+            <div class="logo_footer">
+                <img src="img/logo1.png" alt="Логотип">
+            </div>
+            <div class="slogan">
+                <p>Возможно мы что-то упустили - сообщите нам!</p>
+            </div>
+            <div class="contact-info">
+                <p>Телефон: +7 (951) 218-11-61</p>
+                <p>Email: pereskokova2004@gmail.com</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/test1.js"></script>
 </body>
