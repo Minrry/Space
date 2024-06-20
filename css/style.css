@@ -22,7 +22,7 @@ ul, ol, li{
 li{
     font-size: clamp(11px, 3vw, 20px);
 }
-img { pointer-events: auto; 
+img { pointer-events: none; 
 }
 p{
     font-size: clamp(11px, 3vw, 20px);
@@ -350,9 +350,8 @@ nav{
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     border-radius: 5%;
-/*      cursor: pointer;
     z-index: 10;
-    touch-action: manipulation; */
+    touch-action: manipulation;
 }
 .cross:before {
     content: "";
