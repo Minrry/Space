@@ -22,7 +22,7 @@ ul, ol, li{
 li{
     font-size: clamp(11px, 3vw, 20px);
 }
-img { pointer-events: none; 
+img { pointer-events: auto; 
 }
 p{
     font-size: clamp(11px, 3vw, 20px);
