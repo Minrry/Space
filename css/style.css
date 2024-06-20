@@ -208,7 +208,7 @@ nav{
     margin-left: -100px;
     opacity: 0;
     transition: opacity 1s;
-    pointer-events: ;
+    pointer-events: auto ;
     font-size: clamp(11px, 3vw, 16px);
 }
 .tooltip .tooltiptext::after {
