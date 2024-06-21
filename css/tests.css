@@ -207,6 +207,18 @@ button:hover:before {
         width: 120px;
         height: 40px;
     }
+    .footer-content {
+        flex-direction: column;
+        gap: 0;
+    }
+    .logo_footer img {
+        width: 45px;
+        height: 38px;
+    }
+    .slogan p {
+        margin: 10px 10px 20px;
+        font-size: clamp(12px, 15vw, 15px);
+    }
 }
 @media (max-width: 400px ) {
     .logo{
