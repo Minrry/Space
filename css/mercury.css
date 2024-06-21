@@ -145,7 +145,6 @@ main {
 .head {
     text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 3px;
 }
 section{
     margin: 25vw 0  0;
