@@ -10,6 +10,17 @@ body{
     background-color: #0e0e0e;
     font-weight: 500; 
 }
+body::-webkit-scrollbar {
+    width: 5px;            
+}
+body::-webkit-scrollbar-track {
+    background: #f4e9d9;
+    border-radius: 10px;      
+}
+ body::-webkit-scrollbar-thumb {
+    background: #ffe082;
+    border-radius: 10px;
+}
 a{
     color: inherit;
     text-decoration: none;
@@ -27,6 +38,9 @@ img { pointer-events: none;
 h2{
     font-size:clamp(18px, 8vw, 45px) ;
     color: #ffe082;
+}
+h3{
+    font-size:clamp(18px, 8vw, 45px) ;  
 }
 p{
     font-size: clamp(11px, 3vw, 20px);
@@ -50,7 +64,7 @@ header{
     width: 100%;
 }
 header.shadow{
-    background: var(--text-color);
+    /* background: var(--text-color); */
     background-color: #0e0e0e;
     box-shadow: 0px 0px 40px -11px #0e0e0e;
     transition: 0.7s ease;    
@@ -77,7 +91,7 @@ nav{
     width: 100%;
     height: 2px;
     bottom: 0;
-    background-color: #ffe082;
+    background-color: #ba4e2c;
     transform: scaleX(0);
     transition: 0.3s ease;
 } 
@@ -149,6 +163,9 @@ main{
     display: block;
     margin: 0 auto;
 }
+.facts_icon p{
+    text-align: center;
+}
 .content_conteiner{
     width: 100%;
     overflow: hidden;
@@ -163,27 +180,28 @@ main{
     margin: 0px auto;
 }
                 /* ----полоса прокрутки */
-.info {
+.info_blok {
     width: 100%;
     height: 450px;
     overflow-y: scroll;
     position: relative;
 }
-.info::-webkit-scrollbar {
+.info_blok::-webkit-scrollbar {
     width: 5px;
 }
-.info::-webkit-scrollbar-track {
+.info_blok::-webkit-scrollbar-track {
     background: #f4e9d9;
     border-radius: 10px;
 }
-.info::-webkit-scrollbar-thumb {
+.info_blok::-webkit-scrollbar-thumb {
     background: #ffe082;
     border-radius: 10px;
 }
 .info h2{
     font-size:clamp(18px, 8vw, 45px) ;
+    margin: 0 0 15px 0;
 }
-.info p{
+.info_blok p{
     margin: 15px 0 0;
 }
                 /* полоса прокрутки---- */
@@ -199,7 +217,49 @@ main{
     color: #ffe082;
     font-size: clamp(20px, 14vw, 100px);
 }
+                /* ---------всплывающая подсказка при наведении */
 
+.tooltip {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+    font-family: sans-serif;  
+    color: #ba4e2c;
+    text-decoration: underline;  
+}
+.tooltip .tooltiptext {
+    width: 250px;
+    background-color: #79280E;
+    color: #f4e9d9;
+    text-align: center;
+    border-radius: 30px;
+    padding: 1em;
+    position: absolute;
+    z-index: 10;
+    top: 200%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 1s;
+    pointer-events: none;
+    font-size: clamp(11px, 3vw, 16px);
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 35%;
+    transform: rotate(180deg);
+    border-width: 20px;
+    border-style: solid;
+    border-color: #79280E transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext,
+.tooltip:active .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+                /*всплывающая подсказка при наведении -------------*/
 .conteiner-phenomen h2{
     text-align: center;
     margin: 0 0 40px;
@@ -209,19 +269,22 @@ main{
     grid-template: repeat(2, 1fr)/ repeat(2, 1fr);
     gap: 20px 8px;
 }
-.phenomen-description {
-    
+.phenomen-description p {
+    margin: 15px 0 0 0;
 }
 .phenomen_img{
     display: grid;
+    align-content: center;
 }
 .phenomen_img img {
-    width: 500px;
-    /* display: grid; */
+    width: 40vw;
     justify-self: center;
 }
-
-
+.atmos{
+    width: 80%;
+    display: flex;
+    margin: 60px auto;
+}
 
 /*--------- подвал ----------*/
 footer { 
@@ -247,12 +310,32 @@ footer {
 .contact-info p {
     margin: 10px 0;
 }
-.foot.active,
-.content.active {
-    display: none;
-} 
-/* адаптив */
+
+@media (max-width: 950px ) {
+    .conteiner_information {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (max-width: 760px ) {
+    .phenomen-information{
+        display: grid;
+        grid-template: repeat(1, 1fr)/ repeat(1, 1fr);
+        gap: 20px 8px;
+    }
+    .description_1{
+        grid-area: 3/1/3/1;
+    }
+    .description_2{
+        grid-area: 7/1/8/1;
+    }
+}
 @media (max-width: 500px ) {
+    .facts {
+        flex-wrap: wrap
+    }
+    .info_blok{
+        overflow: unset;
+    }
     .footer-content {
         flex-direction: column;
         gap: 0;
@@ -264,5 +347,41 @@ footer {
     .slogan p {
         margin: 10px 10px 20px;
         font-size: clamp(12px, 15vw, 15px);
+    }
+}
+@media (max-width: 425px ) {
+    .logo{
+        margin: 0 auto;
+        width: 45px;
+        height: 38px;
+    }
+    .menu_btn {
+        display: block;    
+    }
+    .menu_btn.active span:nth-child(1) {
+        opacity: 0;
+    }
+    .menu_btn.active span:nth-child(2) {
+        transform: translateY(4px) rotate(45deg);  
+    }
+    .menu_btn.active span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);  
+    }
+    .menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #0e0e0e;
+        width: 100%;
+        text-align: center;
+        transition: 1s;
+    }
+    .menu.active{
+        left: 0;
+    }    
+    .menu_lin{
+        margin: 16px 0;
     }
 }
