@@ -137,6 +137,26 @@ h2{
     margin: 0;
 }
 
+.content{
+    text-align: center;
+}
+.question {
+    margin-bottom: 20px;
+}
+#questionContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+#questionContainer p{
+    margin: 20px 0;
+}
+label{
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+}
+
                 /* ---------кнопка */
 button{
     border: 1px solid #ba4e2c;
@@ -163,36 +183,79 @@ button::before{
 button:hover:before {
     left: 100%;
 }
-/*--------- подвал ----------*/
 .conteiner {
     max-width: 90%;
     margin: 0px auto;
 }
-.foot { 
-    position: relative;
+.description h2{
+    margin: 25px 0 0 ;
+    color: #ba4e2c;
+}
+.description p {
+    margin: 15px 0 0;
+}
+.description ul{
+    margin: 15px 0 0;
+}
+.description li{
+    list-style: circle;
+    margin: 10px 0 0 20px;
+}
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.616);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #f4e9d9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #0e0e0e;
+}
+
+.close {
+    cursor: pointer;
+    color: red;
+    font-size: 24px;
+
+}
+/*--------- подвал ----------*/
+footer { 
+    position: absolute;
     background-color: #070707;
     padding: 20px 0;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
 }
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.slogan {
-    margin: 10px 0 20px 0;
-    font-size: clamp(17px, 15vw, 21px);
+    gap: 15px;
 }
 .logo_footer img {
-    width: 70px;
-    height: auto;
+    width: 55px;
+    height: 48px;
 }
-.contact-info {
+.slogan p {
+    margin: 10px 0 20px 0;
+    font-size: clamp(12px, 15vw, 15px);
+}
+
+.contact-info p {
     margin: 10px 0;
 }
-.foot.active,
-.content.active {
-    display: none;
-}
+
 
 /*----------------- адаптив----------------- */
 @media (max-width: 900px ) {
