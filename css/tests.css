@@ -234,8 +234,9 @@ footer {
     background-color: #070707;
     padding: 20px 0;
     width: 100%;
-    height: 100px;
+    height: 10vh;
     bottom: 0;
+    margin: 10px 0 0 0;
 }
 .footer-content {
     display: flex;
